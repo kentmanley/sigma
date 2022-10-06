@@ -8,6 +8,19 @@ import sys
 
 import yaml
 
+from py2neo import Graph, Node, Relationship, NodeMatcher, cypher
+#
+# # open graph connection
+graph_bolt = "bolt://127.0.0.1:7687"
+graph_auth = ("neo4j","test")
+
+graph = Graph(graph_bolt,auth=graph_auth)
+
+#
+# Delete existing nodes and edges
+# graph.delete_all()
+
+
 level_eq = {
     "informational" : 1,
     "low"           : 2,
