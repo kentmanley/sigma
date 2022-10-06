@@ -112,7 +112,12 @@ def main():
         }
         if not args.no_comment:
             entry["comment"] = "\n".join(techniques_to_rules[technique])
+        #
+        # Send the Technique to Neo4j
+        neoSigma(entry)     # Build Node and merge into Graph
 
+        #
+        # The main show resumes
         scores.append(entry)
 
     output = {
