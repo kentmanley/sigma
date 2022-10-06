@@ -37,6 +37,20 @@ status_eq = {
     "stable"        : 5
         }
 
+def neoSigma(entry):
+    print("** Entry **: ", entry)
+    label = "SigmaRule"
+    props = {}
+    props['techniqueID'] = entry['techniqueID']
+    props['score'] = entry['score']
+    props['comment'] = entry['comment']
+
+    node_main = Node(label, **props)
+
+    graph.merge(node_main, label, 'techniqueID')
+
+    return
+
 def main():
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("--rules-directory", "-d", dest="rules_dir", default="rules", help="Directory to read rules from")
